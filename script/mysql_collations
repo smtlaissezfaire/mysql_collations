@@ -5,9 +5,6 @@ require "rubygems"
 require "colored"
 
 def execute(sql)
-  extend ActionView::Helpers::TextHelper
-  
-#   puts "* Executing SQL: #{truncate(sql, 100)}"
   result = ActiveRecord::Base.connection.execute(sql)
   result.extend Enumerable
   result.to_a
